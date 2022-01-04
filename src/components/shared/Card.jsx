@@ -1,6 +1,6 @@
-function Card(props) {
+function Card( {children, reverse} ) {
     return (
-        <div className="card">{ props.children }</div>
+        <div className={`card ${reverse && 'reverse'}`}> {children} </div>
     )
 }
 
