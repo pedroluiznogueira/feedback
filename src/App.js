@@ -1,6 +1,16 @@
 function App() {
+
+    const comments = [
+        {id: 1, text: 'comment one'},
+        {id: 2, text: 'comment two'},
+    ];
+
     return(
-        <h1>This is app</h1>
+        <div>
+            {comments.map((comment, index) => (
+                <li key={index}>{comment.text}</li>
+            ))}    
+        </div>
     );
 }
 
