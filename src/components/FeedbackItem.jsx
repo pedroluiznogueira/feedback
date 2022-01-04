@@ -7,8 +7,8 @@ function FeedbackItem({ item }) {
   const [text, setText] = useState('Example text')
 
   const handleClick = () => {
-    setRating(() => {
-      return 10
+    setRating((prev) => {
+      return prev + 1;
     })
     setText('Text changed')
   }
