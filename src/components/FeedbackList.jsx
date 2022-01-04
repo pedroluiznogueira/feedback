@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 
 function FeedbackList( {feedbacks} ) {
     
-    if (!feedbacks || feedbacks.length == 0) 
-        return <p>No feedback yet</p>
     return(
         <>
             {feedbacks.map((feedback) => (
-                <FeedbackItem item={feedback} />
+                <FeedbackItem
+                    key={feedback.id} 
+                    item={feedback}
+                    handleDelete={(id) => {console.log(id)}}
+                />
             ))}
         </>
     );
