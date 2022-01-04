@@ -1,7 +1,8 @@
 import FeedbackItem from './FeedbackItem';
 import PropTypes from 'prop-types'
+import { getPreEmitDiagnostics } from 'typescript';
 
-function FeedbackList( {feedbacks} ) {
+function FeedbackList( {feedbacks, handleDelete} ) {
     
     return(
         <>
@@ -9,7 +10,7 @@ function FeedbackList( {feedbacks} ) {
                 <FeedbackItem
                     key={feedback.id} 
                     item={feedback}
-                    handleDelete={(id) => {console.log(id)}}
+                    handleDelete={handleDelete}
                 />
             ))}
         </>
