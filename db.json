@@ -1,40 +1,29 @@
 {
   "feedback": [
     {
-      "id": 1,
-      "text": "This is feedback 1 coming from backend - 1",
-      "rating": 10
+      "rating": 10,
+      "text": "firs time testing",
+      "id": 1
     },
     {
-      "id": 1,
-      "text": "This is feedback 1 coming from backend - 2",
-      "rating": 3
+      "rating": 10,
+      "text": "second time testing",
+      "id": 2
     },
     {
-      "id": 3,
-      "text": "This is feedback 1 coming from backend -  3",
-      "rating": 8
+      "rating": 10,
+      "text": "third time testing",
+      "id": 3
     },
     {
-      "text": "adding a text",
-      "rating": 3,
+      "rating": 6,
+      "text": "forth time jhokhjok",
       "id": 4
     },
     {
+      "rating": 9,
+      "text": "aaaaaaaaaaaaaaaaaaaaaa",
       "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "rating": 10,
-      "text": "dsdsdsdsdsds",
-      "id": 7
-    },
-    {
-      "rating": 10,
-      "text": "testing it ",
-      "id": 8
     }
   ]
 }

@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 const FeedbackContext = createContext();
 
@@ -23,7 +22,7 @@ export const FeedbackProvider = ( {children} ) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await  fetch('/feedback?_sort=id&_order=desc', {
+        const response = await fetch('/feedback', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -32,12 +31,20 @@ export const FeedbackProvider = ( {children} ) => {
             body: JSON.stringify(newFeedback)
         });
         const data = await response.json();
-        console.log(data)
+        setFeedbacks([data, ...feedbacks])
     };
 
-    const deleteFeedback = (id) => {
+    const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure you want to delete it ?')) {
-            setFeedbacks(feedbacks.filter((item) => item.id !== id))
+            const response = await fetch('/feedback/' + id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            const data = await response.json()
+            setFeedbacks(feedbacks.filter((item) => item.id !== id));
         }
     };
 
@@ -48,9 +55,20 @@ export const FeedbackProvider = ( {children} ) => {
         });
     };
 
-    const updateFeedback = (id, updItem) => {
+    const updateFeedback = async (id, updItem) => {
+
+        const response = await fetch('/feedback/' + id, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updItem)
+        });
+        const data = await response.json();
+
         setFeedbacks(
-            feedbacks.map((item) => (item.id === id ? {...item, ...updItem} : item))
+            feedbacks.map((item) => (item.id === id ? {...item, ...data} : item))
         )
     }
 
