@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import FeedbackContext from '../context/FeedbackContext';
 import { useContext } from 'react';
 
-function FeedbackList( {handleDelete} ) {
+function FeedbackList() {
     const {feedbacks} = useContext(FeedbackContext);
     
     return(
@@ -20,7 +20,6 @@ function FeedbackList( {handleDelete} ) {
                         <FeedbackItem
                             key={feedback.id} 
                             item={feedback}
-                            handleDelete={handleDelete}
                         />
 
                     </motion.div>
