@@ -7,7 +7,7 @@ function FeedbackItem({ item }) {
   const {deleteFeedback, editFeedback} = useContext(FeedbackContext);
 
   return (
-    <Card reverse={item.rating == 0 && true}>
+    <Card reverse={item.rating === 0 && true}>
       <div className='num-display'>{item.rating}</div>
 
       <button onClick={() => {deleteFeedback(item.id)}} className="close">
