@@ -19,12 +19,20 @@ export const FeedbackProvider = ( {children} ) => {
         setTimeout(() => {
             setFeedbacks(data);
             setIsLoading(false);
-        }, 5000);
+        }, 1000);
     }
 
-    const addFeedback = (newFeedback) => {
-        newFeedback.id = uuidv4();
-        setFeedbacks([newFeedback, ...feedbacks]);
+    const addFeedback = async (newFeedback) => {
+        const response = await  fetch('/feedback?_sort=id&_order=desc', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newFeedback)
+        });
+        const data = await response.json();
+        console.log(data)
     };
 
     const deleteFeedback = (id) => {
